@@ -1,0 +1,18 @@
+$TTL 86400
+@   IN  SOA darthvader.starwars.lan. root.starwars.lan. (
+            2024010101  ; Serial
+            3600        ; Refresh
+            1800        ; Retry
+            604800      ; Expire
+            86400 )     ; Minimum TTL
+
+@   IN  NS  darthvader.starwars.lan.
+
+10   IN  PTR darthvader.starwars.lan.
+11   IN  PTR darthsidious.starwars.lan.
+22   IN  PTR luke.starwars.lan.
+24   IN  PTR yoda.starwars.lan.
+25   IN  PTR yoda.starwars.lan.
+26   IN  PTR c3p0.starwars.lan.
+101  IN  PTR skywalker.starwars.lan.
+111  IN  PTR skywalker.starwars.lan.

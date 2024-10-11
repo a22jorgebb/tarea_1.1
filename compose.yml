@@ -1,0 +1,28 @@
+services:
+  darthvader:
+    build: darthvader
+    hostname: darthvader
+    networks:
+      rededns:
+          ipv4_address: 192.168.20.10
+    volumes:
+      - ./darthvader/conf/named.conf.options:/etc/bind/named.conf.options
+      - ./darthvader/conf/named.conf.local:/etc/bind/named.conf.local
+      - ./darthvader/conf/db.starwars.lan:/etc/bind/db.starwars.lan
+      - ./darthvader/conf/db.20.168.192:/etc/bind/db.20.168.192
+      # /etc/bind/db.starwars.lan
+# Esto de arriba primero se descarga, luego se monta el volumen. Eso pq docker siempre piensa que lo de la izq es una cpta
+  eq1:
+    build: debian
+    hostname: eq1
+    dns:
+      - 192.168.20.10
+    networks:
+      rededns:
+          ipv4_address: 192.168.20.100
+networks:
+  rededns:
+    ipam:
+      config:
+        - subnet: 192.168.20.0/24
+

@@ -1,0 +1,31 @@
+$TTL 86400
+@   IN  SOA darthvader.starwars.lan. root.starwars.lan. (
+            2024010101  ; Serial
+            3600        ; Refresh
+            1800        ; Retry
+            604800      ; Expire
+            86400 )     ; Minimum TTL
+
+; Registros de recursos
+@   IN  NS  darthvader.starwars.lan.
+
+; Registro A para el dominio raíz
+@   IN  A   192.168.20.10  ; Asignar la dirección IP del dominio raíz
+
+darthvader    IN  A   192.168.20.10
+skywalker     IN  A   192.168.20.101
+skywalker     IN  A   192.168.20.111
+luke          IN  A   192.168.20.22
+darthsidious  IN  A   192.168.20.11
+yoda          IN  A   192.168.20.24
+yoda          IN  A   192.168.20.25
+c3p0          IN  A   192.168.20.26
+
+; CNAME para palpatine
+palpatine     IN  CNAME darthsidious
+
+; Registro MX para c3p0
+@             IN  MX  10 c3p0.starwars.lan.
+
+; Registro TXT
+lenda         IN  TXT "Que a forza te acompanhe"
